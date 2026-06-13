@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rekap Pengumpulan Materi</title>
+
+<style>
+/* VARIABEL WARNA DEFAULT (LIGHT MODE) */
+:root {
+    --bg-body: #f4f6f9;
+    --bg-container: white;
+    --bg-card-bio: #f8f9fa;
+    --text-primary: #333333;
+    --text-muted: #555555;
+    --border-color: #cccccc;
+    --border-table: #dddddd;
+    --garis-kop: black;
+}
+
+/* VARIABEL WARNA DARK MODE */
+[data-theme="dark"] {
+    --bg-body: #121212;
+    --bg-container: #1e1e1e;
+    --bg-card-bio: #2a2a2a;
+    --text-primary: #e0e0e0;
+    --text-muted: #aaaaaa;
+    --border-color: #444444;
+    --border-table: #444444;
+    --garis-kop: #e0e0e0;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body{
+background: var(--bg-body);
+padding:20px;
+color: var(--text-primary);
+}
+
+/* HEADER */
+
+.header{
+background: var(--bg-container);
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+border:1px solid var(--border-color);
+}
+
+.kop-surat{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+text-align:center;
+}
+
+.kop-surat img{
+width:75px;
+height:75px;
+object-fit:contain;
+}
+
+.kop-text h2{
+font-size:18px;
+font-weight:bold;
+text-transform:uppercase;
+line-height:1.3;
+}
+
+.kop-text p{
+font-size:12px;
+margin-top:2px;
+color: var(--text-muted);
+}
+
+.garis{
+border:2px solid var(--garis-kop);
+margin:15px 0;
+}
+
+.judul-laporan{
+text-align:center;
+}
+
+.judul-laporan h1{
+font-size:22px;
+margin-bottom:5px;
+text-transform:uppercase;
+}
+
+.judul-laporan p{
+font-size:13px;
+color: var(--text-muted);
+}
+
+/* CONTAINER */
+
+.container{
+background: var(--bg-container);
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.1);
+border: 1px solid var(--border-color);
+}
+
+/* MENU */
+
+.menu{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.menu button{
+background:#0d6efd;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:5px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* TOMBOL TOGGLE THEME */
+.menu .btn-theme {
+    background: #555555;
+}
+[data-theme="dark"] .menu .btn-theme {
+    background: #f39c12;
+    color: #121212;
+}
+
+/* TAB */
+
+.tab{
+display:none;
+}
+
+.tab.active{
+display:block;
+}
+
+/* FORM */
+
+input,
+select{
+width:100%;
+padding:10px;
+margin:5px 0;
+border:1px solid var(--border-color);
+border-radius:5px;
+background: var(--bg-container);
+color: var(--text-primary);
+}
+
+button{
+padding:10px 15px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+margin:5px;
+color:white;
+background:#0d6efd;
+}
+
+.btn-edit{
+background:#f39c12;
+}
+
+.btn-hapus{
+background:#dc3545;
+}
+
+.btn-success{
+background:#198754;
+}
+
+.btn-backup{
+background:#6610f2;
+}
+
+.btn-restore{
+background:#20c997;
+}
+
+.btn-hapus-logo{
+background:#dc3545;
+}
+
+.btn-excel{
+background:#1f7246;
+}
+
+.btn-wa{
+background:#25D366;
+color: white;
+padding: 5px 10px;
+font-size: 11px;
+font-weight: bold;
+}
+
+/* BIODATA */
+.bio{
+background: var(--bg-card-bio);
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+font-size: 10pt; 
+border: 1px solid var(--border-color);
+}
+
+.bio table{
+width:100%;
+border:none;
+}
+
+.bio td{
+border:none;
+padding:5px 0;
+vertical-align:top;
+font-size: 10pt; 
+color: var(--text-primary);
+}
+
+.label{
+width:220px;
+font-weight:normal; 
+}
+
+.titik{
+width:20px;
+text-align:center;
+}
+
+/* CARD */
+
+.card{
+display:flex;
+gap:15px;
+margin-bottom:20px;
+flex-wrap:wrap;
+}
+
+.box{
+flex:1;
+min-width:200px;
+padding:20px;
+border-radius:10px;
+color:white;
+text-align:center;
+}
+
+.box1{
+background:#198754;
+}
+
+.box2{
+background:#dc3545;
+}
+
+/* TABLE */
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:0px; 
+}
+
+th,td{
+border:1px solid var(--border-table);
+padding:10px;
+text-align:left;
+font-size: 10pt; 
+}
+
+td {
+    color: var(--text-primary);
+}
+
+th{
+background:#0d6efd;
+color:white;
+text-align: center;
+font-size: 10pt; 
+}
+
+.sudah{
+color:#198754;
+font-weight:bold;
+}
+[data-theme="dark"] .sudah {
+    color: #2ecc71;
+}
+
+.belum{
+color:#dc3545;
+font-weight:bold;
+}
+[data-theme="dark"] .belum {
+    color: #e74c3c;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:70px;
+text-align:right;
+}
+
+#fileRestore{
+display:none;
+}
+
+/* AREA KHUSUS FITUR BLAST WA */
+.panel-wa-khusus {
+    border: 1px dashed #25D366;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgba(37, 211, 102, 0.05);
+    margin-top: 20px;
+}
+
+/* PRINT */
+
+@media print{
+
+:root, [data-theme="dark"] {
+    --bg-body: white;
+    --bg-container: white;
+    --bg-card-bio: #f8f9fa;
+    --text-primary: black;
+    --text-muted: #555555;
+    --border-color: #000000;
+    --border-table: #000000;
+    --garis-kop: black;
+}
+
+body{
+background:white;
+padding:0;
+font-size:12px;
+}
+
+.no-print{
+display:none !important;
+}
+
+.container{
+box-shadow:none;
+padding:0;
+margin:0;
+border:none;
+}
+
+.header{
+border:none;
+padding:0;
+}
+
+.bio, .bio td {
+font-size: 10pt !important;
+}
+
+table, th, td {
+font-size: 10pt !important;
+}
+
+th,td{
+padding:6px;
+border:1.5px solid #000000;
+color: black !important;
+}
+
+th{
+text-align: center;
+background:#0d6efd !important;
+color: white !important;
+}
+
+.kop-surat img{
+width:65px;
+height:65px;
+}
+
+.footer{
+margin-top:80px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="kop-surat">
+
+<img id="previewLogo"
+src=""
+alt="Logo Kampus">
+
+<div class="kop-text">
+
+<h2 id="tampilNamaCampus">
+UNISKA MAB BANJARMASIN
+</h2>
+
+<p id="tampilAlamatKampus">
+Alamat Kampus
+</p>
+
+<p>
+Website :
+<span id="tampilWebsiteKampus">
+-
+</span>
+</p>
+
+</div>
+
+</div>
+
+<hr class="garis">
+
+<div class="judul-laporan">
+
+<h1 id="judulHeader">
+REKAP PENGUMPULAN MATERI
+</h1>
+
+<p id="subJudulHeader">
+Kelompok 4 - Jaringan Komputer dan Komunikasi Data
+</p>
+
+<p>
+Dosen Pengampu :
+<span id="tampilDosen">
+-
+</span>
+</p>
+
+</div>
+
+</div>
+
+<div class="container">
+
+<div class="menu no-print">
+
+<button onclick="showTab('data')">
+📋 Data
+</button>
+
+<button onclick="showTab('pengaturan')">
+⚙️ Pengaturan
+</button>
+
+<button onclick="showTab('laporan')">
+🖨️ Cetak & Blast WA
+</button>
+
+<button class="btn-backup"
+onclick="exportData()">
+💾 Backup JSON
+</button>
+
+<button class="btn-excel"
+onclick="eksporKeExcel()">
+📊 Ekspor Excel
+</button>
+
+<button class="btn-restore"
+onclick="document.getElementById('fileRestore').click()">
+📂 Restore
+</button>
+
+<button class="btn-theme" id="themeToggle" onclick="toggleTheme()">
+🌓 Mode Gelap
+</button>
+
+<input type="file"
+id="fileRestore"
+accept=".json"
+onchange="restoreData(event)">
+
+</div>
+
+<div class="bio">
+
+<table>
+
+<tr>
+<td class="label">Fakultas</td>
+<td class="titik">:</td>
+<td><span id="tampilFakultas">TEKNOLOGI INFORMASI UNISKA MAB BANJARMASIN</span></td>
+</tr>
+
+<tr>
+<td class="label">Program Studi</td>
+<td class="titik">:</td>
+<td><span id="tampilProdi">S1 SISTEM INFORMASI</span></td>
+</tr>
+
+<tr>
+<td class="label">Akreditasi</td>
+<td class="titik">:</td>
+<td><span id="tampilAkreditasi">A (BAIK SEKALI)</span></td>
+</tr>
+
+<tr>
+<td class="label">Tahun Ajaran</td>
+<td class="titik">:</td>
+<td><span id="tampilTahunAjaran">2025/2026 Genap</span></td>
+</tr>
+
+<tr>
+<td class="label">Ketua Kelompok</td>
+<td class="titik">:</td>
+<td><span id="tampilNamaKetua">MUHAMMAD AVIE SIENNA</span></td>
+</tr>
+
+<tr>
+<td class="label">NPM</td>
+<td class="titik">:</td>
+<td><span id="tampilNpmKetua">2510020086</span></td>
+</tr>
+
+<tr>
+<td class="label">Kelas</td>
+<td class="titik">:</td>
+<td><span id="tampilKelasKetua">2B-SI REG PAGI SIANG BJM (02)</span></td>
+</tr>
+
+<tr>
+<td class="label">No HP</td>
+<td class="titik">:</td>
+<td><span id="tampilHp">085245867094</span></td>
+</tr>
+
+<tr>
+<td class="label">Email</td>
+<td class="titik">:</td>
+<td><span id="tampilEmail">m.aviesienna.fti.uniska.bjm@gmail.com</span></td>
+</tr>
+
+<tr>
+<td class="label">Media Sosial</td>
+<td class="titik">:</td>
+<td><span id="tampilSosmed">Instagram @avieesiennaa_</span></td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<div class="box box1">
+<h3>Sudah Terkumpul</h3>
+<h2 id="jumlahSudah">0</h2>
+</div>
+
+<div class="box box2">
+<h3>Belum Terkumpul</h3>
+<h2 id="jumlahBelum">0</h2>
+</div>
+
+</div>
+
+<div id="data"
+class="tab active no-print"
+style="margin-bottom: 25px;">
+
+<h3>Input Data Mahasiswa</h3>
+
+<input id="npm"
+placeholder="NPM">
+
+<input id="nama"
+placeholder="Nama Mahasiswa">
+
+<input id="waMahasiswa"
+placeholder="Nomor WhatsApp Mahasiswa (Contoh: 08123456789)">
+
+<select id="status">
+
+<option value="SUDAH TERKUMPUL">
+SUDAH TERKUMPUL
+</option>
+
+<option value="BELUM TERKUMPUL">
+BELUM TERKUMPUL
+</option>
+
+</select>
+
+<input id="link"
+placeholder="Link Google Drive">
+
+<button id="btnTambah"
+onclick="tambah()">
+Tambah Data
+</button>
+
+<button class="btn-hapus"
+onclick="hapusSemua()">
+Hapus Semua
+</button>
+
+</div>
+
+<div id="pengaturan"
+class="tab no-print"
+style="margin-bottom: 25px;">
+
+<h3>Pengaturan Laporan</h3>
+
+<input id="judulLaporan"
+placeholder="Judul Laporan"
+value="REKAP PENGUMPULAN MATERI">
+
+<input id="subJudulLaporan"
+placeholder="Sub Judul"
+value="Kelompok 4 - Jaringan Komputer dan Komunikasi Data">
+
+<input id="dosenPengampu"
+placeholder="Nama Dosen Pengampu">
+
+<h3>Data Kampus</h3>
+
+<input id="namaKampus"
+placeholder="Nama Kampus"
+value="UNISKA MAB BANJARMASIN">
+
+<input id="alamatKampus"
+placeholder="Alamat Kampus">
+
+<input id="websiteKampus"
+placeholder="Website Kampus">
+
+<input id="fakultas"
+placeholder="Fakultas"
+value="TEKNOLOGI INFORMASI UNISKA MAB BANJARMASIN">
+
+<input id="prodi"
+placeholder="Program Studi"
+value="S1 SISTEM INFORMASI">
+
+<input id="akreditasi"
+placeholder="Akreditasi"
+value="A (BAIK SEKALI)">
+
+<input id="tahunAjaran"
+placeholder="Tahun Ajaran"
+value="2025/2026 Genap">
+
+<button onclick="setTahunOtomatis()">
+Gunakan Tahun Otomatis
+</button>
+
+<label>Upload Logo Kampus</label>
+
+<input type="file"
+id="logoKampus"
+accept="image/*">
+
+<button class="btn-hapus-logo"
+onclick="hapusLogo()">
+Hapus Logo
+</button>
+
+<h3>Biodata Ketua Kelompok</h3>
+
+<input id="namaKetua"
+placeholder="Nama Ketua"
+value="MUHAMMAD AVIE SIENNA">
+
+<input id="npmKetua"
+placeholder="NPM Ketua"
+value="2510020086">
+
+<input id="kelasKetua"
+placeholder="Kelas"
+value="2B-SI REG PAGI SIANG BJM (02)">
+
+<input id="noHp"
+placeholder="Nomor HP"
+value="085245867094">
+
+<input id="email"
+placeholder="Email"
+value="m.aviesienna.fti.uniska.bjm@gmail.com">
+
+<input id="sosmed"
+placeholder="Media Sosial"
+value="Instagram @avieesiennaa_">
+
+<button onclick="simpanProfil()">
+Simpan Profil
+</button>
+
+</div>
+
+<div id="laporan"
+class="tab no-print"
+style="margin-bottom: 25px;">
+
+<h3>Cetak & Ekspor Dokumen</h3>
+
+<button class="btn-success"
+onclick="window.print()">
+🖨️ Cetak PDF Laporan
+</button>
+
+<button class="btn-excel"
+onclick="eksporKeExcel()">
+📊 Ekspor ke Excel (.csv)
+</button>
+
+<div class="panel-wa-khusus">
+    <h3 style="color: #198754; margin-bottom: 5px;">🚨 Fitur Tagih / Blast WhatsApp Massal</h3>
+    <p style="font-size:12px; margin-bottom:10px; color:var(--text-muted);">
+    Masukkan nomor tujuan (Bisa nomor pribadi kamu, dosen, grup, atau dipisahkan dengan koma jika banyak). Sistem otomatis merekap daftar mahasiswa yang statusnya <b>BELUM TERKUMPUL</b>.
+    </p>
+
+    <input id="inputWaMassal" 
+           placeholder="Contoh: 0852xxxxxxxx, 0812xxxxxxxx (Pisahkan dengan koma jika lebih dari 1 nomor)">
+
+    <div style="margin-top:10px;">
+        <button class="btn-wa" onclick="kirimWAMassal()" style="background: #25D366; padding: 10px 15px; font-size: 13px;">
+            🚀 Kirim Tagihan Massal via WA
+        </button>
+        <button class="btn-edit" onclick="salinTeksTagihan()" style="padding: 10px 15px; font-size: 13px;">
+            📋 Salin Teks Rekap ke Clipboard
+        </button>
+    </div>
+</div>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+<th>No</th>
+<th>NPM</th>
+<th>Nama Mahasiswa</th>
+<th>No WA</th>
+<th>Status</th>
+<th>Link Drive</th>
+<th>Tanggal</th>
+<th class="no-print">Aksi</th>
+</tr>
+
+</thead>
+
+<tbody id="tb"></tbody>
+
+</table>
+
+<div class="footer">
+
+    <p id="tempatTanggal"></p>
+
+    <div class="no-print" style="margin-bottom:10px;">
+        <input type="text"
+               id="inputTempat"
+               placeholder="Masukkan Kota"
+               style="width:120px; padding:3px;">
+
+        <button type="button" onclick="simpanTempat()">
+            Simpan Kota
+        </button>
+    </div>
+
+    <p>Mengetahui,</p>
+    <p>Ketua Kelompok </p>
+
+    <div class="ttd-area" style="display:flex;justify-content:center;align-items:center;width:100%;">
+    <img id="ttdPreview"
+         src=""
+         alt="Tanda Tangan"
+         style="display:block;max-width:180px;max-height:80px;">
+</div>
+
+    <div class="no-print ttd-buttons">
+
+        <input type="file"
+               id="uploadTtd"
+               accept="image/*"
+               style="display:none;">
+
+        <button type="button" onclick="editTtd()">
+            Edit Foto TTD
+        </button>
+
+        <button type="button" onclick="hapusTtd()">
+            Hapus Foto TTD
+        </button>
+
+    </div>
+
+    <b id="footerNama">MUHAMMAD AVIE SIENNA</b>
+
+    <br>
+
+    NPM.
+    <span id="footerNpm">2510020086</span>
+
+</div>
+
+<script>
+function tampilkanTempatTanggal() {
+    const kota = localStorage.getItem('kotaTtd') || 'Banjarmasin';
+    const tanggal = new Date().toLocaleDateString('id-ID', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+    document.getElementById('tempatTanggal').innerHTML =
+        '<b>' + kota + '</b>, <b>' + tanggal + '</b>';
+}
+
+function simpanTempat() {
+    const kota = document.getElementById('inputTempat').value.trim();
+    if (kota !== '') {
+        localStorage.setItem('kotaTtd', kota);
+        tampilkanTempatTanggal();
+        alert('Kota berhasil disimpan');
+    }
+}
+
+document.getElementById('uploadTtd').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const img = document.getElementById('ttdPreview');
+        img.src = event.target.result;
+        img.style.display = 'block';
+        localStorage.setItem('ttd', event.target.result);
+    };
+    reader.readAsDataURL(file);
+});
+
+function editTtd() {
+    document.getElementById('uploadTtd').click();
+}
+
+function hapusTtd() {
+    const img = document.getElementById('ttdPreview');
+    img.src = '';
+    img.style.display = 'none';
+    localStorage.removeItem('ttd');
+    document.getElementById('uploadTtd').value = '';
+}
+
+window.addEventListener('load', function() {
+    tampilkanTempatTanggal();
+    const kota = localStorage.getItem('kotaTtd');
+    if (kota) {
+        document.getElementById('inputTempat').value = kota;
+    }
+    const ttd = localStorage.getItem('ttd');
+    if (ttd) {
+        const img = document.getElementById('ttdPreview');
+        img.src = ttd;
+        img.style.display = 'block';
+    }
+});
+</script>
+
+<style>
+.footer{
+    width:250px;
+    margin-left:auto;
+    text-align:center;
+    margin-top:15px;
+}
+
+.ttd-area{
+    height:90px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#ttdPreview{
+    max-height:80px;
+    max-width:180px;
+    display:none;
+}
+
+.ttd-buttons{
+    display:flex;
+    justify-content:center;
+    gap:5px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+}
+
+.ttd-buttons button{
+    padding:4px 8px;
+    font-size:11px;
+    cursor:pointer;
+    border:1px solid var(--border-color);
+    border-radius:4px;
+    background: var(--bg-container);
+    color: var(--text-primary);
+}
+
+.ttd-buttons button:hover,
+.no-print button:hover{
+    opacity:0.9;
+}
+
+@media print{
+    .no-print{
+        display:none !important;
+    }
+}
+</style>
+
+<script>
+let data = JSON.parse(localStorage.getItem("pengumpulan") || "[]");
+let editIndex = -1;
+
+function getTahunAjaranOtomatis(){
+    let tahun = new Date().getFullYear();
+    let bulan = new Date().getMonth()+1;
+    if(bulan >= 7){
+        return `${tahun}/${tahun+1} Ganjil`;
+    }else{
+        return `${tahun-1}/${tahun} Genap`;
+    }
+}
+
+function setTahunOtomatis(){
+    document.getElementById("tahunAjaran").value = getTahunAjaranOtomatis();
+}
+
+function showTab(id){
+    document.querySelectorAll(".tab").forEach(tab=>{
+        tab.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+}
+
+function generateTeksTagihanMassal() {
+    let judulMatkul = document.getElementById("subJudulHeader").innerText;
+    let namaKetua = document.getElementById("tampilNamaKetua").innerText;
+    let listBelum = data.filter(x => x.status === "BELUM TERKUMPUL");
+    
+    if(listBelum.length === 0) return null;
+
+    let pesan = `⚠️ *PERINGATAN TUGAS KELOMPOK* ⚠️\n\nBerikut adalah list nama mahasiswa yang *BELUM MENGUMPULKAN* materi tugas kelompok untuk mata kuliah:\n📚 *${judulMatkul}*\n\n`;
+    listBelum.forEach((mhs, idx) => {
+        pesan += `${idx + 1}. *${mhs.nama}* (NPM: ${mhs.npm})\n`;
+    });
+    pesan += `\nMohon untuk segera mengunggah file materi Anda ke Google Drive kelompok.\n\nTerima Kasih.\nSalam,\n*${namaKetua}* (Ketua Kelompok)`;
+    return pesan;
+}
+
+function kirimWAMassal() {
+    let pesan = generateTeksTagihanMassal();
+    if(!pesan) {
+        alert("Hebat! Semua mahasiswa sudah mengumpulkan materi. Tidak ada yang perlu ditagih.");
+        return;
+    }
+    let nomorInput = document.getElementById("inputWaMassal").value.trim();
+    if(!nomorInput) {
+        alert("Silakan isi nomor WhatsApp tujuan terlebih dahulu!");
+        return;
+    }
+    let nomorFormatted = nomorInput.replace(/[^0-9,]/g, "");
+    let urlWA = `https://api.whatsapp.com/send?phone=${encodeURIComponent(nomorFormatted)}&text=${encodeURIComponent(pesan)}`;
+    window.open(urlWA, '_blank');
+}
+
+function salinTeksTagihan() {
+    let pesan = generateTeksTagihanMassal();
+    if(!pesan) {
+        alert("Semua data mahasiswa sudah lengkap (SUDAH TERKUMPUL).");
+        return;
+    }
+    navigator.clipboard.writeText(pesan).then(() => {
+        alert("📋 Teks rekap berhasil disalin!");
+    }).catch(err => {
+        alert("Gagal menyalin teks secara otomatis.");
+    });
+}
+
+function simpan(){
+    localStorage.setItem("pengumpulan", JSON.stringify(data));
+    render();
+    statistik();
+}
+
+function formatNomorWA(no) {
+    let cleaned = ('' + no).replace(/\D/g, '');
+    if (cleaned.startsWith('0')) {
+        cleaned = '62' + cleaned.substring(1);
+    }
+    return cleaned;
+}
+
+function tambah(){
+    let npm = document.getElementById("npm").value.trim();
+    let nama = document.getElementById("nama").value.trim();
+    let wa = document.getElementById("waMahasiswa").value.trim();
+    let status = document.getElementById("status").value;
+    let link = document.getElementById("link").value.trim();
+
+    if(!npm || !nama){
+        alert("Lengkapi data");
+        return;
+    }
+
+    let obj = {
+        npm,
+        nama,
+        wa: wa || "-",
+        status,
+        link,
+        tanggal: new Date().toLocaleString("id-ID")
+    };
+
+    if(editIndex==-1){
+        data.push(obj);
+    }else{
+        data[editIndex]=obj;
+        editIndex=-1;
+        document.getElementById("btnTambah").innerHTML = "Tambah Data";
+    }
+
+    simpan();
+    document.getElementById("npm").value="";
+    document.getElementById("nama").value="";
+    document.getElementById("waMahasiswa").value="";
+    document.getElementById("link").value="";
+}
+
+function kirimWA(index) {
+    let d = data[index];
+    if(!d.wa || d.wa === "-") {
+        alert("Nomor WhatsApp untuk mahasiswa ini belum diisi!");
+        return;
+    }
+    let nomorTujuan = formatNomorWA(d.wa);
+    let judulMatkul = document.getElementById("subJudulHeader").innerText;
+    let namaKetua = document.getElementById("tampilNamaKetua").innerText;
+    let pesan = "";
+
+    if (d.status === "SUDAH TERKUMPUL") {
+        pesan = `Halo *${d.nama}* (NPM: ${d.npm}),\n\nTerima kasih materi tugas kamu untuk mata kuliah *${judulMatkul}* *SUDAH TERKUMPUL* dengan aman di dalam sistem kelompok.\n\nTautan Drive: ${d.link}\nWaktu Pembaruan: ${d.tanggal}\n\nSalam,\n*${namaKetua}* (Ketua Kelompok)`;
+    } else {
+        pesan = `Halo *${d.nama}* (NPM: ${d.npm}),\n\nMengingatkan kembali untuk segera mengumpulkan materi tugas kelompok kita untuk mata kuliah *${judulMatkul}* karena status kamu saat ini masih *BELUM TERKUMPUL*.\n\nHarap segera melakukan upload file berkasnya ya. Terima kasih!\n\nSalam,\n*${namaKetua}* (Ketua Kelompok)`;
+    }
+    let urlWA = `https://api.whatsapp.com/send?phone=${nomorTujuan}&text=${encodeURIComponent(pesan)}`;
+    window.open(urlWA, '_blank');
+}
+
+function eksporKeExcel() {
+    if (data.length === 0) {
+        alert("Tidak ada data untuk diekspor!");
+        return;
+    }
+    let barisCsv = [];
+    barisCsv.push("No;NPM;Nama Mahasiswa;No WA;Status;Link Drive;Tanggal Pembaruan");
+    data.forEach((d, index) => {
+        barisCsv.push(`${index + 1};${d.npm};${d.nama};${d.wa || "-"};${d.status};${d.link};${d.tanggal}`);
+    });
+    let isiKonten = "\uFEFF" + barisCsv.join("\n");
+    let blob = new Blob([isiKonten], { type: "text/csv;charset=utf-8;" });
+    let linkDownload = document.createElement("a");
+    linkDownload.href = URL.createObjectURL(blob);
+    linkDownload.download = "Rekap_Pengumpulan_Materi_Mhs.csv";
+    linkDownload.click();
+}
+
+function render(){
+    let tb = document.getElementById("tb");
+    tb.innerHTML="";
+    data.forEach((d,i)=>{
+        let teksTombolWA = d.status === "SUDAH TERKUMPUL" ? "📲 Konfirmasi WA" : "🚨 Tagih WA";
+        let nomorTampil = d.wa ? d.wa : "-";
+        tb.innerHTML += `
+        <tr>
+        <td style="text-align: center;">${i+1}</td>
+        <td style="text-align: center;">${d.npm}</td>
+        <td>${d.nama}</td>
+        <td style="text-align: center;">${nomorTampil}</td>
+        <td style="text-align: center;" class="${d.status==="SUDAH TERKUMPUL"?"sudah":"belum"}">${d.status}</td>
+        <td style="text-align: center;"><a href="${d.link}" target="_blank">Buka File</a></td>
+        <td style="text-align: center;">${d.tanggal}</td>
+        <td class="no-print" style="text-align: center;">
+        <button class="btn-edit" onclick="editData(${i})">Edit</button>
+        <button class="btn-wa" onclick="kirimWA(${i})">${teksTombolWA}</button>
+        <button class="btn-hapus" onclick="hapusData(${i})">Hapus</button>
+        </td>
+        </tr>`;
+    });
+}
+
+function editData(index){
+    document.getElementById("npm").value = data[index].npm;
+    document.getElementById("nama").value = data[index].nama;
+    document.getElementById("waMahasiswa").value = data[index].wa || "";
+    document.getElementById("status").value = data[index].status;
+    document.getElementById("link").value = data[index].link;
+    editIndex=index;
+    document.getElementById("btnTambah").innerHTML = "Update Data";
+    showTab('data');
+}
+
+function hapusData(index){
+    if(confirm("Hapus data ini?")){
+        data.splice(index,1);
+        simpan();
+    }
+}
+
+function hapusSemua(){
+    let konfirmasi = prompt("Ketik HAPUS");
+    if(konfirmasi==="HAPUS"){
+        data=[];
+        simpan();
+    }
+}
+
+function statistik(){
+    let sudah = data.filter(x=>x.status==="SUDAH TERKUMPUL").length;
+    let belum = data.filter(x=>x.status==="BELUM TERKUMPUL").length;
+    document.getElementById("jumlahSudah").innerHTML=sudah;
+    document.getElementById("jumlahBelum").innerHTML=belum;
+}
+
+function hapusLogo(){
+    let profil = JSON.parse(localStorage.getItem("profilKelompok"));
+    if(!profil) return;
+    profil.logo="";
+    localStorage.setItem("profilKelompok", JSON.stringify(profil));
+    document.getElementById("previewLogo").src="";
+}
+
+function simpanProfil(){
+    let logoFile = document.getElementById("logoKampus");
+    let fileToRead = logoFile ? logoFile.files[0] : null;
+
+    function simpanData(logoBase64=""){
+        let profilLama = JSON.parse(localStorage.getItem("profilKelompok")) || {};
+        let profil = {
+            ...profilLama,
+            judul: document.getElementById("judulLaporan").value,
+            subjudul: document.getElementById("subJudulLaporan").value,
+            dosen: document.getElementById("dosenPengampu").value,
+            namaKampus: document.getElementById("namaKampus").value,
+            alamatKampus: document.getElementById("alamatKampus").value,
+            websiteKampus: document.getElementById("websiteKampus").value,
+            fakultas: document.getElementById("fakultas").value,
+            prodi: document.getElementById("prodi").value,
+            akreditasi: document.getElementById("akreditasi").value,
+            tahunAjaran: document.getElementById("tahunAjaran").value,
+            nama: document.getElementById("namaKetua").value,
+            npm: document.getElementById("npmKetua").value,
+            kelas: document.getElementById("kelasKetua").value,
+            hp: document.getElementById("noHp").value,
+            email: document.getElementById("email").value,
+            sosmed: document.getElementById("sosmed").value,
+            logo: logoBase64 || profilLama.logo || ""
+        };
+
+        localStorage.setItem("profilKelompok", JSON.stringify(profil));
+        loadProfil();
+        alert("Profil berhasil disimpan");
+    }
+
+    if(fileToRead){
+        let reader = new FileReader();
+        reader.onload = function(e){
+            simpanData(e.target.result);
+        };
+        reader.readAsDataURL(fileToRead);
+    }else{
+        simpanData();
+    }
+}
+
+function loadProfil(){
+    let profil = JSON.parse(localStorage.getItem("profilKelompok"));
+    if(!profil){
+        document.getElementById("tahunAjaran").value = "2025/2026 Genap";
+        return;
+    }
+
+    document.getElementById("judulHeader").innerHTML = profil.judul || "REKAP PENGUMPULAN MATERI";
+    document.getElementById("subJudulHeader").innerHTML = profil.subjudul || "Kelompok 4 - Jaringan Komputer dan Komunikasi Data";
+    document.getElementById("tampilDosen").innerHTML = profil.dosen || "-";
+    document.getElementById("tampilNamaCampus").innerHTML = profil.namaKampus || "UNISKA MAB BANJARMASIN";
+    document.getElementById("tampilAlamatKampus").innerHTML = profil.alamatKampus || "-";
+    document.getElementById("tampilWebsiteKampus").innerHTML = profil.websiteKampus || "-";
+    document.getElementById("tampilFakultas").innerHTML = profil.fakultas || "TEKNOLOGI INFORMASI UNISKA MAB BANJARMASIN";
+    document.getElementById("tampilProdi").innerHTML = profil.prodi || "S1 SISTEM INFORMASI";
+    document.getElementById("tampilAkreditasi").innerHTML = profil.akreditasi || "A (BAIK SEKALI)";
+    document.getElementById("tampilTahunAjaran").innerHTML = profil.tahunAjaran || "2025/2026 Genap";
+    document.getElementById("tampilNamaKetua").innerHTML = profil.nama || "MUHAMMAD AVIE SIENNA";
+    document.getElementById("tampilNpmKetua").innerHTML = profil.npm || "2510020086";
+    document.getElementById("tampilKelasKetua").innerHTML = profil.kelas || "2B-SI REG PAGI SIANG BJM (02)";
+    document.getElementById("tampilHp").innerHTML = profil.hp || "085245867094";
+    document.getElementById("tampilEmail").innerHTML = profil.email || "m.aviesienna.fti.uniska.bjm@gmail.com";
+    document.getElementById("tampilSosmed").innerHTML = profil.sosmed || "Instagram @avieesiennaa_";
+    document.getElementById("footerNama").innerHTML = profil.nama || "MUHAMMAD AVIE SIENNA";
+    document.getElementById("footerNpm").innerHTML = profil.npm || "2510020086";
+
+    if(profil.logo){
+        document.getElementById("previewLogo").src = profil.logo;
+    }
+
+    document.getElementById("judulLaporan").value = profil.judul || "REKAP PENGUMPULAN MATERI";
+    document.getElementById("subJudulLaporan").value = profil.subjudul || "Kelompok 4 - Jaringan Komputer dan Komunikasi Data";
+    document.getElementById("dosenPengampu").value = profil.dosen || "";
+    document.getElementById("namaKampus").value = profil.namaKampus || "UNISKA MAB BANJARMASIN";
+    document.getElementById("alamatKampus").value = profil.alamatKampus || "";
+    document.getElementById("websiteCampuskampus") ? document.getElementById("websiteCampuskampus").value = profil.websiteKampus || "" : document.getElementById("websiteKampus").value = profil.websiteKampus || "";
+    document.getElementById("fakultas").value = profil.fakultas || "TEKNOLOGI INFORMASI UNISKA MAB BANJARMASIN";
+    document.getElementById("prodi").value = profil.prodi || "S1 SISTEM INFORMASI";
+    document.getElementById("akreditasi").value = profil.akreditasi || "A (BAIK SEKALI)";
+    document.getElementById("tahunAjaran").value = profil.tahunAjaran || "2025/2026 Genap";
+    document.getElementById("namaKetua").value = profil.nama || "MUHAMMAD AVIE SIENNA";
+    document.getElementById("npmKetua").value = profil.npm || "2510020086";
+    document.getElementById("kelasKetua").value = profil.kelas || "2B-SI REG PAGI SIANG BJM (02)";
+    document.getElementById("noHp").value = profil.hp || "085245867094";
+    document.getElementById("email").value = profil.email || "m.aviesienna.fti.uniska.bjm@gmail.com";
+    document.getElementById("sosmed").value = profil.sosmed || "Instagram @avieesiennaa_";
+}
+
+function exportData(){
+    let semuaData = {
+        pengumpulan:data,
+        profil: JSON.parse(localStorage.getItem("profilKelompok"))
+    };
+    let blob = new Blob([JSON.stringify(semuaData, null, 2)], {type:"application/json"});
+    let a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "backup_pengumpulan.json";
+    a.click();
+}
+
+function restoreData(event){
+    let file = event.target.files[0];
+    if(!file) return;
+    let reader = new FileReader();
+    reader.onload = function(e){
+        let hasil = JSON.parse(e.target.result);
+        if(hasil.pengumpulan){
+            data = hasil.pengumpulan;
+            localStorage.setItem("pengumpulan", JSON.stringify(data));
+        }
+        if(hasil.profil){
+            localStorage.setItem("profilKelompok", JSON.stringify(hasil.profil));
+        }
+        render();
+        statistik();
+        loadProfil();
+        alert("Restore berhasil");
+    };
+    reader.readAsText(file);
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', targetTheme);
+    localStorage.setItem('theme', targetTheme);
+    updateThemeButton(targetTheme);
+}
+
+function updateThemeButton(theme) {
+    const btn = document.getElementById('themeToggle');
+    if (theme === 'dark') {
+        btn.innerHTML = "☀️ Mode Terang";
+    } else {
+        btn.innerHTML = "🌓 Mode Gelap";
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeButton(savedTheme);
+});
+
+render();
+statistik();
+loadProfil();
+</script>
+
+</body>
+</html>
